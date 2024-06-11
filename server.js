@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 
 
 app.use(morgan('dev'));
+app.use(bodyParser.urlencoded({ extended: true })); // for handling form data
 app.use(bodyParser.json());
 app.use(cors());
 

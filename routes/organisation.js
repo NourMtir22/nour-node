@@ -1,14 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const organisationController = require("../controllers/organisationController");
-const upload = require('../middleware/multer-config'); // Assuming multerConfig.js contains your multer setup
+const organisationController = require('../controllers/organisationController');
+const fileUpload = require('express-fileupload'); // Add this package for file uploads
 
-// Routes for User CRUD operations
+router.use(fileUpload());
 
-//router.post('/organisation', upload.single('organisationPic'), organisationController.createOrganisation);
-router.post('/organisation', upload, organisationController.createOrganisation);
+router.post('/organisation', organisationController.createOrganisation);
 
-
-
-
-module.exports = router; 
+module.exports = router;
